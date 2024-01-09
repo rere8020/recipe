@@ -4,4 +4,4 @@ from app import calc
 class MyTests(SimpleTestCase):
     def test_add(self):
         result = calc.add(5, 6)
-        self.assertEqual(result, 1)
+        self.assertEqual(result, 11)
