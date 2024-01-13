@@ -14,7 +14,7 @@ class Command(BaseCommand):
         db_up = False
         while db_up is False:
             try:
-                self.check()
+                self.check(databases=['default'])
                 db_up = True
             except (PsycopgOpError, OperationalError):
                 self.stdout.write('Waiting 1 sec for database to be up...')
