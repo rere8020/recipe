@@ -13,5 +13,11 @@ lint:
 test:
 	docker-compose -f docker-compose.yml run --rm app sh -c "python manage.py test" -v 3 --remove-orphans
 
+dbup:
+	docker-compose -f docker-compose.yml run --rm app sh -c "python manage.py wait_for_db"
+
+dbupflake:
+	docker-compose -f docker-compose.yml run --rm app sh -c "python manage.py wait_for_db && flake8"
+
 startproject:
 	docker-compose -f docker-compose.yml run --rm  app sh -c "django-admin startproject app ." --remove-orphans
